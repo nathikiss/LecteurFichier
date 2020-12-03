@@ -15,7 +15,7 @@ public abstract class LecteurFichierAbstract {
 		try {
 			in = new FileInputStream(file);
 			int content=0;
-			String result ="";
+			String result =""; 
 			do {
 				try {
 					content= in.read();
@@ -28,9 +28,11 @@ public abstract class LecteurFichierAbstract {
 				
 				}
 			} while (content != -1);
+			
+			//Displaying the file and it name
 			int position = file.indexOf("/");
-			String nomFichier = file.substring(position+1,file.length());
-			System.out.println("Voici le contenu du fichier "+nomFichier+" : \n");
+			String nameFile = file.substring(position+1,file.length());
+			System.out.println("Voici le contenu du fichier "+nameFile+" : \n");
 			System.out.println(result);
 		} catch (FileNotFoundException e) {
 			

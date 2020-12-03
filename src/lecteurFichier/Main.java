@@ -12,7 +12,9 @@ public class Main {
 		 
 		  LecteurFichierInterface test = new LecteurFichier();
 		  String file="C:\\Users\\Dell\\lecteurFichier\\src\\lecteurFichier/test.txt";
-		  test.lireAfficherFichier(file);
-		  test.lireFichierReverse(file);
+		  //test.lireAfficherFichier(file);
+		  //test.lireFichierPalindrome(file);
+		  //test.lireFichierReverse(file);
+		  test.lireFichierSixVoyelles("C:\\Users\\Dell\\lecteurFichier\\src\\lecteurFichier/sixvoyelles.txt");
 }
 	  }
