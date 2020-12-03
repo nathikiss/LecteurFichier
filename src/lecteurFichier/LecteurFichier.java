@@ -6,7 +6,16 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
-public class LecteurFichier extends LecteurFichierAbstract implements LecteurFichierInterface {
+/**
+ *Cette classe herite de la classe LecteurFichierAbstract. On y utilise 
+ *les méthodes restantes de l'interface LecteurFichierInterface :
+ * lireFichierPalindrome(), lireFichierReverse(),
+ * lireFichierSixVoyelles(). 
+ *
+ */
+
+
+public class LecteurFichier extends LecteurFichierAbstract  {
 	
 	public LecteurFichier() {
 		super.file = file;
@@ -29,11 +38,14 @@ public class LecteurFichier extends LecteurFichierAbstract implements LecteurFic
 					e.printStackTrace();
 				}
 				if (content != -1) {
+					//transforme le int en char, puis on le met dans une String result
 					result += (char)content;
 				}
 			}
 			while (content != -1);
+			//On inverse le contenu grâce au Buffer
 			StringBuffer palindromeResult = (new StringBuffer(result)).reverse();
+			//tronque l'URL du fichier afin de prendre uniquement le nom
 			int position = file.indexOf("/");
 			String nameFile = file.substring(position+1,file.length());
 			System.out.println("Voici le contenu du fichier "+nameFile+" en lecture Palindromique : \n");
@@ -61,21 +73,18 @@ public class LecteurFichier extends LecteurFichierAbstract implements LecteurFic
 					e.printStackTrace();
 				}
 				if (content != -1) { 
-					// Convert the int into a character and put it in a String
 					result += (char)content;
 					
 				}
 			} while (content != -1);
 			
-			//truncate the file URL to find it name
 			int position = file.indexOf("/");
 			String nameFile = file.substring(position+1,file.length());
 			System.out.println("Voici le contenu du fichier en Inversé "+nameFile+" : \n");
-			
-			//We split the file, insert each word in the array
+			//on sépare le fichier , on insère chaque ligne dans un tableau
 			final String SEPARATOR = "\n";
 			String mots[] = result.split(SEPARATOR);
-			//Display each word from the end to the beginning
+			//Affiche chaque ligne de la fin jusqu'au début
 			for (int i = mots.length-1; i>=0; i--) {
 				System.out.println(mots[i]);}
 		} catch (FileNotFoundException e) {
@@ -101,22 +110,19 @@ public class LecteurFichier extends LecteurFichierAbstract implements LecteurFic
 					e.printStackTrace();
 				}
 				if (content != -1) { 
-					// Convert the int into a character and put it in a String
 					result += (char)content;
 					
 				}
 			} while (content != -1);
 			
-			//truncate the file URL to find it name
 			int position = file.indexOf("/");
 			String nameFile = file.substring(position+1,file.length());
 			System.out.println("Voici la traduction du CodeSecret contenu dans le fichier "+nameFile+" : \n");
 			
-			//We split the file, insert each word in the array
 			final String SEPARATOR = "\n";
 			String mots[] = result.split(SEPARATOR);
-			//Display each word from the end to the beginning
-			//change number into letter
+			//Affiche les lignes du début à la fin
+			//remplace les chiffres par des voyelles
 			for (int i =0; i<mots.length; i++) {
 				System.out.println(mots[i].replace("1","a").replace("2","e").replace("3","i")
 						.replace("4","o").replace("5","u").replace("6","y"));}
